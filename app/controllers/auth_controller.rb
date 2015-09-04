@@ -22,7 +22,6 @@ class AuthController < ApplicationController
   end
 
   def fb_login_page
-    "https://www.facebook.com/dialog/oauth?client_id=#{FB[:app_id]}
-      &redirect_uri=http://localhost:3000/login&scope=user_friends"
+    "https://www.facebook.com/dialog/oauth?client_id=#{FB[:app_id]}&redirect_uri=http://localhost:3000/login&scope=user_friends"
   end
 end
