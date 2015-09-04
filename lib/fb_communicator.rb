@@ -2,8 +2,9 @@ class FbCommunicator
   include HTTParty
   base_uri 'https://graph.facebook.com/v2.4'
 
-  def initialize(access_token = nil)
+  def initialize(access_token, redirect_uri = 'http://localhost:3000')
     @access_token = access_token
+    @redirect_uri = redirect_uri
   end
 
   def get_auth_token(code)
@@ -26,7 +27,7 @@ class FbCommunicator
     {
       query: {
         client_id: FB[:app_id],
-        redirect_uri: 'http://localhost:3000/login',
+        redirect_uri: "#{@redirect_uri}/login",
         client_secret: FB[:secret_id],
         code: code
       }

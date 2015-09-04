@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
   end
 
   def fb
-    @fb ||= FbCommunicator.new(session.fetch(:fb, {}).fetch('access_token', nil))
+    @fb ||= FbCommunicator.new(session.fetch(:fb, {}).fetch('access_token', nil), domain)
+  end
+
+  def domain
+    request.protocol + request.host_with_port
   end
 end
