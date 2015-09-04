@@ -20,7 +20,7 @@ RSpec.describe FbCommunicator do
           body: '{"access_token": "sometoken"}',
           headers: {"Content-Type": "application/json"}
         )
-      fb = FbCommunicator.new
+      fb = FbCommunicator.new nil
       expect(fb.get_auth_token('code')).to eql({"access_token" => "sometoken"})
       expect(fb.instance_variable_get(:@access_token)).to eql 'sometoken'
     end

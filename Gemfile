@@ -33,6 +33,7 @@ end
 
 group :test do
   gem 'webmock'
+  gem 'sqlite3'
 end
 
 group :development do
